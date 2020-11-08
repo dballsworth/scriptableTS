@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# scriptableTS
-=======
 # Scriptable
 
 # Development in TypeScript
@@ -13,9 +10,6 @@ ln -fs /Users/jasperhartong/Library/Mobile\ Documents/iCloud~dk~simonbs~Scriptab
 
 Develop scripts in `/code`.
 
-<<<<<<< HEAD
-Run `yarn build` or `yarn watch` to build the TS files to js in `bin`.
-=======
 Run `yarn build` or `yarn watch` to build the TS files to js in `output`.
 
 
@@ -30,4 +24,3 @@ I tried to make sure to not interfere with global namespace in multiple ways, bu
 * Never call `Script.complete();`
 
 None worked though..
->>>>>>> 19c9d54 (Extend README with issue)
