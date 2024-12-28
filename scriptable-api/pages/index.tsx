@@ -10,7 +10,7 @@ import { useDebounce } from 'use-debounce'
 import { CodeWithClipboard } from "../src/components/CodeWithClipboard"
 import { WidgetModuleCard } from "../src/components/WidgetModuleCard"
 import { WidgetModule } from "../src/interfaces"
-
+import theme from '../src/theme'
 
 
 
@@ -23,7 +23,7 @@ interface PageProps {
 
 const useStyles = makeStyles(theme => ({
   header: {
-    background: theme.palette.primary.main,
+    background: "#d84d8e",
     color: "white"
   },
   headerText: {
