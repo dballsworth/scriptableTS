@@ -247,6 +247,7 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
 export const getStaticProps: GetStaticProps<{}, {}> = async ({ params }) => {
   const widgetLoaderPath = resolve('./public/compiled-widgets/widgetLoader.js');
   const widgetModuleModuleNames = [
+    "EJDstickyWidgetModule",
     "stickyWidgetModule",
     "simpleAnalyticsWidgetModule",
     "covid19WidgetModule",

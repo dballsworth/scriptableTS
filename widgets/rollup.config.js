@@ -19,7 +19,10 @@ export default [
             strict: false,
             banner: WIDGET_LOADER_BANNER,
         },
-        plugins: [typescript()]
+        plugins: [typescript()],
+        watch: {
+            include: 'code/**'
+        }
     },
     ...(widgetModuleFilenames.map(fileName => ({
         input: `code/widget-modules/${fileName}`,
@@ -29,7 +32,9 @@ export default [
             strict: false,
             name: parse(fileName).name
         },
-        plugins: [typescript()]
-
+        plugins: [typescript()],
+        watch: {
+            include: 'code/**'
+        }
     }))),
 ];

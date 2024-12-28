@@ -1,0 +1,10 @@
+{
+    "name": "EJD Sticky Widget",
+    "description": "Eric's WIP sticky note widget",
+    "paramLabel": "The text on the sticky",
+    "paramPlaceHolder": "Scriptable is fun!",
+    "loaderArgs": {
+        "iconColor": "green",
+        "iconGlyph": "sticky-note"
+    }
+}
