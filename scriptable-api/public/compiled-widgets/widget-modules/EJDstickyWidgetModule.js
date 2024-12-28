@@ -7,8 +7,8 @@
         let dark = Device.isUsingDarkAppearance();
         let fgColor = Color.black();
         if (dark) {
-            //fgColor = new Color("#FFCF00", 1)
-            fgColor = new Color("#90EE90", 1);
+            fgColor = new Color("#FFCF00", 1);
+            //fgColor = new Color("#90EE90", 1)
             let bgColor = Color.black();
             widget.backgroundColor = bgColor;
         }
