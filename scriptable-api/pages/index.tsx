@@ -34,7 +34,8 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: "url(/scriptable-hero.png)",
     backgroundSize: "cover",
     width: "100%",
-    paddingBottom: "109%",
+    paddingBottom: "80%",
+  
   },
   alert: {
     marginTop: theme.spacing(4),
@@ -108,7 +109,7 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
   return (
     <div>
       <Head>
-        <title>Scriptable TS Boilerplate</title>
+        <title>Dickens & Ballsworth iOS Widgets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={classes.header}>
@@ -116,13 +117,13 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
           <Grid container alignItems="flex-end">
             <Grid item xs={12} sm={6}>
               <div className={classes.headerText}>
-                <Typography component="h4" variant="h4" gutterBottom color="inherit">Scriptable TS Boilerplate</Typography>
+                <Typography component="h4" variant="h4" gutterBottom color="inherit">Dickens & Ballsworth iOS Widgets</Typography>
                 <Typography variant="body1" style={{ opacity: 0.6 }} gutterBottom >
-                  A boilerplate for creating remote-updatable <Link color="inherit" underline="always" href="https://scriptable.app">Scriptable</Link> widgets. Includes setup, components, utils and examples to develop in the comfort of <Link color="inherit" underline="always" href="https://www.typescriptlang.org">TypeScript</Link>.
+                  A stunning amount of technology for creating remote-updatable <Link color="inherit" underline="always" href="https://scriptable.app">Scriptable</Link> widgets. Includes setup, components, utils and examples to develop in the comfort of <Link color="inherit" underline="always" href="https://www.typescriptlang.org">TypeScript</Link>.
               </Typography>
                 <Typography variant="body1" gutterBottom ></Typography>
                 <div style={{ marginTop: 32 }}>
-                  <Link variant="body1" underline="always" color="inherit" href="https://github.com/jasperhartong/scriptable-ts-boilerplate">Github repo →</Link>
+                  <Link variant="body1" underline="always" color="inherit" href="https://github.com/dballsworth/scriptableTS">Github repo →</Link>
                 </div>
               </div>
             </Grid>
@@ -135,15 +136,15 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
 
       <div className={classes.whiteSection}>
         <Container maxWidth="md">
-          <Typography component="h4" variant="h4" gutterBottom>Try the examples</Typography>
+          <Typography component="h4" variant="h4" gutterBottom>To install on your iPhone or iPad</Typography>
           <Alert severity="info" className={classes.alert}>
             <AlertTitle>Before you continue</AlertTitle>
           Make sure to first download the awesome <a href="https://scriptable.app">Scriptable App</a> from the <a href="https://apps.apple.com/us/app/scriptable/id1405459188?uo=4">Apple App Store</a>.
         </Alert>
 
-          <Typography component="h5" variant="h5" gutterBottom>1. Pick an example widget</Typography>
+          <Typography component="h5" variant="h5" gutterBottom>1. Pick the widget you want to install</Typography>
           <Typography variant="body1" gutterBottom color="textSecondary"  >
-            These widget examples are included in the boilerplate.
+            Right now, there's only one:
         </Typography>
           <div className={classes.cardsContainer}>
             {widgetModules.map(wm =>
@@ -155,30 +156,12 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
             )}
             <Paper className={classes.paperComingSoon} >
               <Typography variant="caption" color="textSecondary" component="div" style={{ marginTop: 68 }}>
-                More examples coming soon!
+                More widgets coming soon!
           </Typography>
             </Paper>
           </div>
 
-          <Typography component="h5" variant="h5" gutterBottom>2. Provide its default input</Typography>
-          <Typography variant="body1" gutterBottom color="textSecondary"  >
-            This is not required and can also be filled into the Widget Setting after adding the widget
-        </Typography>
-          <TextField
-            className={classes.textField}
-            value={widgetParameterValue}
-            variant="outlined"
-            color="primary"
-            label={selectedModule ? selectedModule.meta.paramLabel : "First pick a widget.."}
-            placeholder={selectedModule ? selectedModule.meta.paramPlaceHolder : "First pick a widget.."}
-            InputLabelProps={{
-              shrink: true
-            }}
-            disabled={!selectedModule}
-            onChange={(event) => setWidgetParameterValue(event.currentTarget.value)}
-          />
-
-          <Typography component="h5" variant="h5" gutterBottom>3. Copy the snippet</Typography>
+          <Typography component="h5" variant="h5" gutterBottom>2. Copy this snippet</Typography>
 
           {/* The key is just a quick hack to remount the code on every change to make highlight work */}
           <CodeWithClipboard
@@ -189,7 +172,7 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
           />
 
           <div style={{ margin: 20 }} />
-          <Typography component="h5" variant="h5" gutterBottom>4. Paste the snippet</Typography>
+          <Typography component="h5" variant="h5" gutterBottom>3. Paste the snippet</Typography>
           <Button href="https://open.scriptable.app/add" target="_Blank" variant="contained" color="primary">
             <span style={{ marginRight: 8 }}>Open the Scriptable App</span>
             <LaunchIcon />
@@ -210,31 +193,16 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
         <Container maxWidth="md">
           <Typography component="h4" variant="h4" gutterBottom>A bit of background</Typography>
           <Typography variant="body1" gutterBottom >
-            Intrigued by the possibilities offered by the Scriptable App to create custom iOS Widgets in Javascript, I wondered whether this would also be useful for prototyping product-services requiring real widget interactions. The other route, publishing a actual native iOS app to TestFlight, just felt way to convoluted.
-          </Typography>
-          <Typography variant="body1" gutterBottom component="div">
-            I decided to set up this boilerplate to create such prototypes in a developer and end-user friendly manner.
-            <ul>
-              <li><strong>One time setup, continuous updates</strong>: To allow rapid prototyping, only an initial setup is required for the end-user. After this setup any new widget code deployed is downloaded the next time the widget refreshes (<a href="https://gitlab.com/sillium-scriptable-projects/universal-scriptable-widget">inspiration</a>). This is also great for when all is still in flux (e.g. the UX, the API).</li>
-              <li><strong>Minimize code failures</strong>: During prototyping enough soft failures will, and should, already happen, it's an experiment. But minimizing the noise of hard/code failures is something to always strive for. Using TypeScript helps with this (I think), ensuring you don't mistakingly put in a Foo where a Bar was expected. </li>
-              <li><strong>Even more rapid local prototyping</strong>: Loading the code from a (local) server also helps to make the roundabout between your editor and your phone also a lot faster. No longer you need to wait on iCloud to sync on both sides. </li>
-              <li><strong>Offloading to the server</strong>: As Nextjs is included, custom API's are also simple to implement. This can keep the data-wrangling on the server and the actual widget code simple.</li>
-            </ul>
-          </Typography>
-          <Typography variant="body1" gutterBottom >
-            Of course, there are also some drawbacks. Regular widgets for instance can be informed by their related app that they should update. For widgets created in Scriptable, this only happens periodically. But besides such minor points there's just a lot you can do with Scriptable!
+            Using this widget on my iPhone, i almost never forget the next gig... I thought, maybe my friends would want this too?
           </Typography>
         </Container>
       </div>
 
       <div className={classes.whiteSection}>
         <Container maxWidth="md">
-          <Typography component="h4" variant="h4" gutterBottom>Try the boilerplate</Typography>
-          <Typography variant="body1" gutterBottom component="div" >
-            Visit the <Link href="https://github.com/jasperhartong/scriptable-ts-boilerplate">Github repo</Link> or the <Link href="https://docs.scriptable.app">official Scriptable Documentation</Link>. Follow any updates on Twitter <Link href="https://twitter.com/jasperhartong">@jasperhartong</Link>.
-          </Typography>
+      
           <Alert severity="warning" className={classes.alert}>
-            <AlertTitle>This boilerplate is very much still a work in progress</AlertTitle>
+            <AlertTitle>This whole deal is a work in progress</AlertTitle>
             It works for my purpose at the moment :)
         </Alert>
         </Container>
@@ -247,11 +215,7 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
 export const getStaticProps: GetStaticProps<{}, {}> = async ({ params }) => {
   const widgetLoaderPath = resolve('./public/compiled-widgets/widgetLoader.js');
   const widgetModuleModuleNames = [
-    "EJDstickyWidgetModule",
-    "stickyWidgetModule",
-    "simpleAnalyticsWidgetModule",
-    "covid19WidgetModule",
-    "kitchenSinkWidgetModule"
+    "EJDstickyWidgetModule"
   ]
   const props: PageProps = {
     widgetLoader: readFileSync(widgetLoaderPath).toString("utf-8"),

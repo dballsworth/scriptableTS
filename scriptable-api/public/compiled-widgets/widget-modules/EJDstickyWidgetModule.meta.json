@@ -1,6 +1,6 @@
 {
-    "name": "EJD Sticky Widget",
-    "description": "Eric's WIP sticky note widget",
+    "name": "Next Gig Widget",
+    "description": "D&B's next gig countdown widget",
     "paramLabel": "The text on the sticky",
     "paramPlaceHolder": "Scriptable is fun!",
     "loaderArgs": {
