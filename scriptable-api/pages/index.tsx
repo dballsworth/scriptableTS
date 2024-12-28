@@ -139,7 +139,7 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
           <Typography component="h4" variant="h4" gutterBottom>To install on your iPhone or iPad</Typography>
           <Alert severity="info" className={classes.alert}>
             <AlertTitle>Before you continue</AlertTitle>
-          Make sure to first download the awesome <a href="https://scriptable.app">Scriptable App</a> from the <a href="https://apps.apple.com/us/app/scriptable/id1405459188?uo=4">Apple App Store</a>.
+          👀 Watch <a href="https://youtube.com/shorts/lVnuFupY0Ew">this simple video walkthrough.</a> 👀 <p>Make sure to first download the awesome <a href="https://scriptable.app">Scriptable App</a> from the <a href="https://apps.apple.com/us/app/scriptable/id1405459188?uo=4">Apple App Store</a>.</p>
         </Alert>
 
           <Typography component="h5" variant="h5" gutterBottom>1. Pick the widget you want to install</Typography>
