@@ -1,0 +1,10 @@
+{
+    "name": "Songs 2LRN Widget",
+    "description": "D&B's songs to learn widget",
+    "paramLabel": "The text on the sticky",
+    "paramPlaceHolder": "Scriptable is fun!",
+    "loaderArgs": {
+        "iconColor": "green",
+        "iconGlyph": "sticky-note"
+    }
+}

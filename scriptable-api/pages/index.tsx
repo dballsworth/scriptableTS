@@ -214,8 +214,9 @@ export default function Page({ widgetLoader, widgetModules }: PageProps) {
 
 export const getStaticProps: GetStaticProps<{}, {}> = async ({ params }) => {
   const widgetLoaderPath = resolve('./public/compiled-widgets/widgetLoader.js');
+  //add new modules here
   const widgetModuleModuleNames = [
-    "EJDstickyWidgetModule"
+    "EJDstickyWidgetModule", "EJDsongsWidgetModule"
   ]
   const props: PageProps = {
     widgetLoader: readFileSync(widgetLoaderPath).toString("utf-8"),
