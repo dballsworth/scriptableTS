@@ -43,7 +43,7 @@ const createWidget = async (note: string) => {
         console.log("song:");
         console.log(launch);
         let songText = stack.addText(launch);
-        //styleText(launch);
+        styleText(songText);
         //addTextToStack(stack, launch, Font.boldSystemFont(16), "#ffcc00");  
 
     

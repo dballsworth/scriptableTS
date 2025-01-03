@@ -32,7 +32,7 @@
             console.log("song:");
             console.log(launch);
             let songText = stack.addText(launch);
-            //styleText(launch);
+            styleText(songText);
             //addTextToStack(stack, launch, Font.boldSystemFont(16), "#ffcc00");  
         }
         catch (e) {
@@ -43,6 +43,13 @@
         }
         return widget;
     };
+    // Style the countdown text
+    function styleText(textElement) {
+        textElement.font = Font.boldSystemFont(16);
+        textElement.textColor = new Color("#ffcc00");
+        textElement.centerAlignText();
+        textElement.minimumScaleFactor = 0.5;
+    }
     function styleTitle(textElement) {
         textElement.font = Font.boldSystemFont(16);
         textElement.textColor = new Color("#d84d8e");
