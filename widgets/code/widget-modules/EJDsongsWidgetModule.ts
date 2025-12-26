@@ -3,11 +3,10 @@
 import { IWidgetModule } from "code/utils/interfaces"
 
 const imageURL = "https://raw.githubusercontent.com/dballsworth/nextGigWidget/main/dblogo.jpeg";
-let trelloDeveloperKey ="c5bf5abe532082fed089ddb1c8683d78"
+let trelloDeveloperKey = "c5bf5abe532082fed089ddb1c8683d78"
 let trelloDeveloperToken = "ATTAfa10264547870cfffe3bcff8169a588a3989faf21d0e6c9925d19ed4671afdb3FBDAE991"
-let trelloSongsCardID = "dFFeATPO" 
-
-const endpoint = 'https://api.trello.com/1/cards/' + trelloSongsCardID + '?key=' + trelloDeveloperKey + '&token=' + trelloDeveloperToken
+let trelloBoardId = "xBSOfe7V"
+let trelloListName = "1 song widget"
 
 
 const createWidget = async (note: string) => {
@@ -89,18 +88,45 @@ function styleTitle(textElement) {
 
 
 
-// Fetch the next launch data
-async function getSong() {
-    const url = endpoint;
+// Fetch list ID by name from the board
+async function getListIdByName(boardId: string, listName: string): Promise<string> {
+    const url = `https://api.trello.com/1/boards/${boardId}/lists?key=${trelloDeveloperKey}&token=${trelloDeveloperToken}`;
     const request = new Request(url);
-    const response = await request.loadJSON();
-    let song = response.name;
+    const lists = await request.loadJSON();
 
-    //make sure we got a valid song
-    if (!song || song === "") {
-        throw new Error("No upcoming song found or song missing");  
-    } 
-    return song;
+    const targetList = lists.find(list => list.name === listName);
+
+    if (!targetList) {
+        throw new Error(`List "${listName}" not found on board`);
+    }
+
+    return targetList.id;
+}
+
+// Fetch the first card from a list
+async function getFirstCardFromList(listId: string): Promise<string> {
+    const url = `https://api.trello.com/1/lists/${listId}/cards?key=${trelloDeveloperKey}&token=${trelloDeveloperToken}`;
+    const request = new Request(url);
+    const cards = await request.loadJSON();
+
+    if (!cards || cards.length === 0) {
+        throw new Error("No cards found in the '1 song widget' list");
+    }
+
+    const songName = cards[0].name;
+
+    if (!songName || songName === "") {
+        throw new Error("First card has no name");
+    }
+
+    return songName;
+}
+
+// Fetch the song name from the first card in the list
+async function getSong() {
+    const listId = await getListIdByName(trelloBoardId, trelloListName);
+    const songName = await getFirstCardFromList(listId);
+    return songName;
 }
 
 
